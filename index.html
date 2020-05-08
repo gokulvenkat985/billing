@@ -254,6 +254,7 @@
                <button class="btn btn-primary" style="float:left !important;" id="append" >Add Line</button>
                <!-- <span id="result">0</span> -->
                <input type="hidden"  id="result">
+               <input type="hidden" name="text" id="tot_hid_1">
              </div>
               <div class="col-lg-6">
                <input type="submit" class="btn btn-primary" style="float:left !important; background-color: white; color:#008ae6; border-color: grey;" value="Submit">
@@ -333,6 +334,7 @@
                   </div>\
                </div>\
             </div>\
+               <input type="hidden" name="text" id="tot_hid_'+countNew+'">\
            ');
         
         
@@ -578,7 +580,7 @@ let countAdd;
                </div>\
             </div>\
             <input type="hidden" class="form-control" id="gst_hid_3" value="108" ><input type="hidden" class="form-control" id="gst_hid_4" value="108" >\
-            ');
+            <input type="hidden" name="text" id="tot_hid_2" value="217"><input type="hidden" name="text" id="tot_hid_3" value="540"><input type="hidden" name="text" id="tot_hid_4" value="1287">');
 for(var loop=2 ; loop<5;loop++){
     var options =
 [
@@ -866,7 +868,10 @@ var val = Math.floor(1000 + Math.random() * 9000);
       // console.log(total_price);
       
       $('#tot_'+combined).val(total_price);
-      $('#gst_hid_'+combined).val(inc_gst);}
+      $('#gst_hid_'+combined).val(inc_gst);
+      $('#tot_hid_'+combined).val(int_price);
+
+    }
 }); }, 2000);
 
 </script>
@@ -887,6 +892,8 @@ if(gst != null){
       var total_price = int_price + inc_gst;
        $('#tot_'+id_split).val(total_price);
        $('#gst_hid_'+id_split).val(inc_gst);
+       $('#tot_hid_'+id_split).val(int_price);
+
     }
     else{
       var int_price = price*cost;
@@ -905,14 +912,14 @@ function calc_total(){
 // ==========================totalamouunt====================================
 var array_tot=[];
   for(var i=1;i<=val;i++){
-    // console.log(i);
-    var tot_pri =document.getElementById('tot_'+i).value;
+    var tot_pri = $('#tot_hid_'+i).val();
+    // var tot_pri =document.getElementById('tot_hid_'+i).value;
         array_tot.push(parseInt(tot_pri));
   }
    var sum = array_tot.reduce(function(a, b){
         return a + b;
     }, 0);
-   console.log("sum"+sum);
+   console.log("TOTAL Q * C ="+sum);
    document.getElementById('total').innerHTML='$'+sum;
   console.log(array_tot);
 // ==================gsttotalamount========================================
@@ -928,7 +935,7 @@ console.log(array_gst);
 
 var total_tax=sum_gst+sum;
 document.getElementById('total_gst').innerHTML='$'+sum_gst;
-console.log("amount"+total_tax);
+console.log("GST"+sum_gst);
 total_tax = '$'+total_tax;
 $('#gst_value').html(total_tax);
 }, 100);
