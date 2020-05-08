@@ -1,0 +1,44 @@
+button{
+         float: right !important;
+         font-size: 11px !important;
+         margin-right: 3px;
+         background-color: white !important;
+         border-color: grey !important;
+         color: #008ae6 !important;
+         }
+         #spacing{
+         margin-top: 22px;
+         }
+         #spacing_first_row{
+         margin-top: 22px;
+         }
+         #spacing_first_row1{
+          margin-top :12px;
+         }
+         #spacing_first_row2{
+          margin-top :12px;
+          
+         }
+         /*.head_space{
+         margin-bottom: 22px;
+         }*/
+         #edit_color{
+          color: #008ae6;
+          font-size: 17px;
+         }
+         #color_card{
+          background-color: #ffe6e6;
+         }
+         .crd_title{
+  font-weight: bold;
+         }
+         select#sel1 {
+         height: 31px;
+         font-size:13px;
+          }
+          input.form-check-input {
+             margin-top: 12px;
+          }
+          select{
+            font-size:12px !important;
+          }
